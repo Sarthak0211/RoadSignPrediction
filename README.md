@@ -1,1 +1,14 @@
-# RoadSignPrediction
+# Deep Learning Techniques Comparison for Road Sign Detection and Classification
+
+In this project, we look to identify road signs and classify them. For this purpose, we have adopted two approaches. In the first we use AutoML on Google Cloud platform to create a system that can identify the road sign bounding box as well as the classified road sign. We explored several types of model configurations which vary in performance and latency. The second approach deals with classification using transfer learning. We experimented with three different architectures- ResNet50, Xception and InceptionResNetV2. We also tried using the pretrained weights and compared the training times and accuracies. These approaches highlight possible strategies to classify road signals for autonomous vehicles.
+
+![alt text](https://www.google.com/search?q=road+sign+detection+bounding+box&tbm=isch&ved=2ahUKEwi15_Sh9dD3AhX2sXIEHTvWChwQ2-cCegQIABAA&oq=road+sign+detection+bounding+box&gs_lcp=CgNpbWcQAzoECAAQQzoECAAQGDoECAAQHlC_AViCFmC8FmgAcAB4AIABU4gBqAaSAQIxNJgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=Uj94YrX2MPbjytMPu6yr4AE&bih=821&biw=1440#imgrc=A_rr3IsiifXr8M)
+
+Expert systems, such as traffic assistance driving systems and automatic driving systems, rely heavily on traffic sign detection and identification. It immediately aids human and automated driving systems in effectively detecting and recognizing traffic signs. We look to utilize the various options GCP offers to perform deep learning operations as well. AutoML presents a clean and powerful tool for our purpose. We also covered various transfer learning techniques in class which we wanted to experiment with and observe the tradeoff between complexity of model, training time and accuracy. The German dataset of images was used to train the models.
+
+## AutoML
+
+Procedure - In order to train a model for the task of Image Object Detection of road signs, we decided to leverage the AutoML feature within the Vertex AI service provided by Google Cloud Platform. The first step involved preprocessing the GTSDB dataset and converting the images and corresponding labels (bounding boxes + class id) into an AutoML compatible format. For this, we first uploaded all images into a Cloud Storage Bucket and then created a CSV file linking the image URIs to the labels using the provided schema. Class balance was ensured by maintaining a uniform label ratio across the training, validation and test set. We trained two AutoML models (High Accuracy & Faster Predictions) which are supposed to be deployed using industrial GPUs and TPUs. Apart from these we trained three AutoML edge models (High Accuracy, Best trade-off and Fast Predictions) which are supposed to be deployed on the end device.
+After training all 5 models, we evaluated their performance using Precision-Recall curves which are computed by Vertex AI’s AutoML platform and shall be shown later on in this presentation. The training time for each model has also been recorded to serve as an estimate for model size and complexity.
+
+
