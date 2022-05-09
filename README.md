@@ -2,8 +2,8 @@
 
 Contributors-
 
--Sarthak Bhargava (https://github.com/Sarthak0211)
--Arunit Maity (https://github.com/arunitmaity)
+- Sarthak Bhargava (https://github.com/Sarthak0211)
+- Arunit Maity (https://github.com/arunitmaity)
 
 In this project, we look to identify road signs and classify them. For this purpose, we have adopted two approaches. In the first we use AutoML on Google Cloud platform to create a system that can identify the road sign bounding box as well as the classified road sign. We explored several types of model configurations which vary in performance and latency. The second approach deals with classification using transfer learning. We experimented with three different architectures- ResNet50, Xception and InceptionResNetV2. We also tried using the pretrained weights and compared the training times and accuracies. These approaches highlight possible strategies to classify road signals for autonomous vehicles.
 
